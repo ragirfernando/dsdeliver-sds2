@@ -32,4 +32,10 @@ public class OrderController {
                 .buildAndExpand(dto.getId()).toUri();
         return  ResponseEntity.created(uri).body(dto);
     }
+
+    @PutMapping("/{id}/delivered")
+    public ResponseEntity<OrderDto> setDelivered(@PathVariable Long id) {
+       OrderDto dto = service.setDelivered(id);
+        return  ResponseEntity.ok().body(dto);
+    }
 }
